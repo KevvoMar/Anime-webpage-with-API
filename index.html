@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultra Anime</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/b08459ac42.js" crossorigin="anonymous"></script>
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+
+    <main>
+        <div class="row">
+            <nav>
+                <div class="logo--wrapper">
+                    <figure>
+                        <img class="logo" src="./assets/module 5 project logo.png" alt="AniKev Logo">
+                    </figure>
+                    <h1>Ultra Anime</h1>
+                </div>
+                <ul class="nav__links">
+                    <li class="click"><a class="nav__link" href="#">Home</a></li>
+                    <li class="click"><a class="nav__link" href="#">About</a></li>
+                    <li class="click"><a class="nav__link" href="#">Contact</a></li>
+                    <li class="click"><a class="nav__link" href="#">Profile</a></li>
+                </ul>
+            </nav>
+
+            <section id="landing">
+                <div class="container">
+                    <div class="search__wrapper">
+                        <h1 class="landing__title">Welcome to Ultra Anime</h1>
+                        <p class="landing__para">Find the top anime shows and movies instantly!</p>
+                        <div class="search__container">
+                            <input type="text" class="landing__search-bar" placeholder="Search anime...">
+                            <a href="#results"><button class="search-btn"><i class="fas fa-search click"></i></button></a>
+                        </div>
+                        <div class="filters">
+                            <select class="sort-select">
+                                <option selected disabled value="">Sort</option>
+                                <option value="az" data-filter="az">A → Z</option>
+                                <option value="za" data-filter="za">Z → A</option>
+                            </select>
+
+                            <div class="filter-btns">
+                                <button class="filter-btn click" data-filter="popular">Popular</button>
+                                <button class="filter-btn click" data-filter="new">New</button>
+                                <button class="filter-btn click" data-filter="old">Old</button>
+                                 <a href="#results"><button class="filter-btn reset-filters--btn click">Reset Filters</button></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section id="results">
+            <div class="anime__loading--wrapper">
+                <i class="fas fa-spinner anime__loading--spinner"></i>
+            </div>
+            <div class="anime-grid">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer__container">
+            <div class="logo--wrapper">
+                <a href="#"><img class="logo" src="./assets/module 5 project logo.png" alt=""></a>
+            </div>
+            <ul class="quick__links">
+                <li><a class="quick__link" href="#">Home</a></li>
+                <li><a class="quick__link" href="#">About</a></li>
+                <li><a class="quick__link" href="#">Contact</a></li>
+                <li><a class="quick__link" href="#">Profile</a></li>
+            </ul>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
