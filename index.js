@@ -5,6 +5,7 @@ const filterButtons = document.querySelectorAll(".filter-btn")
 const sortSelect = document.querySelector('.sort-select')
 const resetFilterBtn = document.querySelector('.reset-filters--btn')
 const resultsSection = document.getElementById('results')
+let originalResults = []
 
 
 
@@ -15,6 +16,7 @@ animeGrid.classList.add('anime-grid--hide')
   const response = await fetch(`https://api.jikan.moe/v4/anime?q=${query}`);
   const data = await response.json();
   currentResults = data.data;
+  originalResults = [...currentResults]
 
   resultsSection.classList.remove('anime__loading')
   animeGrid.classList.remove('anime-grid--hide')
@@ -23,6 +25,7 @@ animeGrid.classList.add('anime-grid--hide')
         anime.safeTitle = anime.title_english || anime.title || "Unknown";
         anime.genreList = anime.genres.map(g => g.name).join(", ") || "Unknown"
     });
+
     
     renderGrid()  
 }
@@ -101,7 +104,7 @@ filterButtons.forEach(btn => {
     btn.addEventListener('click',  () => {
         filterButtons.forEach(b => b.classList.remove('filter-btn-active'))
         btn.classList.add('filter-btn-active')
-    const type = btn.dataset.filter
+        const type = btn.dataset.filter
 
     applyFilter(type)
     console.log(type)
@@ -116,21 +119,21 @@ sortSelect.addEventListener('change', () => {
 
     applyFilter(type)
     console.log(type)
-    console.log(sortSelect.innerHTML)
+    console.log(sortSelect.selectedIndex)
 
 })
 
 resetFilterBtn.addEventListener('click', () => {
    filterButtons.forEach(btn => btn.classList.remove('filter-btn-active'))
    sortSelect.selectedIndex = 0
-    searchInput.value = ''
-    renderAnime('one piece')
+   currentResults = [...originalResults]
+   renderGrid()
 })
 
 searchBtn.addEventListener("click", submitSearch)
 searchInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter") 
-    submitSearch()
+    submitSearch();
 })
 
 window.addEventListener("DOMContentLoaded", () => {
